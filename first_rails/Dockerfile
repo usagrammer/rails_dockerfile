@@ -15,7 +15,7 @@ SHELL ["/bin/zsh", "-c"]
 
 RUN dnf -y install sudo git which vim
 
-RUN dnf -y gcc
+# RUN dnf -y gcc
 
 ### ======汎用ここまで======
 
@@ -28,6 +28,8 @@ RUN dnf module disable -y mysql
 RUN dnf install -y mysql-community-server
 # RUN systemctl start mysqld
 RUN systemctl enable mysqld
+
+RUN cat /var/log/mysqld.log
 
 ### ======mysql5.7ここまで======
 
@@ -72,4 +74,4 @@ RUN bundle config --global build.mysql2 --with-opt-dir="$(brew --prefix openssl)
 
 ### ======Rubyここまで======
 
-CMD ["/bin/zsh" ]
+CMD ["/sbin/init" ]
