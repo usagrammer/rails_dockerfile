@@ -1,5 +1,7 @@
 FROM ruby:3.0.0
 
+## updateしないとinstallできない
+## imagemagickは最初から入ってる
 RUN apt update
 RUN apt-get install -y nodejs
 RUN apt-get install -y yarn
